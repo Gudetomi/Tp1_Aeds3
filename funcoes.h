@@ -16,4 +16,4 @@ void executa_gl();
 void executa_fb();
 
 //Interpretador das Entradas
-Star_death *imperial_plan(int nave);
+Stardeath *imperial_plan(int *nave);
