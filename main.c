@@ -9,19 +9,19 @@ int main(int argc,char *argv[]){
     int nave;
     star_death3 = imperial_plan(&nave);
 
-    if(argv[1] == 'PD' || argv[1] == 'pd'){
+    if(argv[1] == "PD" || argv[1] == "pd"){
         //chamar função de programação dinamica
-        executa_pd();
+        executa_pd(&nave,star_death3);
         
     }
-    else if(argv[1] == 'AG' || argv[1] == 'ag'){
+    else if(argv[1] == "AG" || argv[1] == "ag"){
         //chamar função de algoritmo guloso
-        executa_ag();
+        executa_ag(&nave,star_death3);
 
     }
-    else if(argv[1] == 'FB' || argv[1] == 'fb'){
+    else if(argv[1] == "FB" || argv[1] == "fb"){
         //chamar função de força bruta
-        executa_fb();
+        executa_fb(&nave,star_death3);
 
     }
 
