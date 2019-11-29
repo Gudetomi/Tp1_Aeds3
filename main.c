@@ -7,23 +7,14 @@ int main(int argc,char *argv[]){
     a respectiva função passando como parametro os argumentos de entrada e o vetor das distancias*/
     Stardeath *star_death3;
     int nave;
+
     star_death3 = imperial_plan(&nave);
-
-    if(argv[1] == "PD" || argv[1] == "pd"){
-        //chamar função de programação dinamica
-        executa_pd(&nave,star_death3);
-        
-    }
-    else if(argv[1] == "AG" || argv[1] == "ag"){
+    if(strcmp(argv[1], "AG") == 0 || strcmp(argv[1], "ag") == 0){
         //chamar função de algoritmo guloso
-        executa_ag(&nave,star_death3);
+        executa_ag(nave,star_death3);
 
     }
-    else if(argv[1] == "FB" || argv[1] == "fb"){
-        //chamar função de força bruta
-        executa_fb(&nave,star_death3);
-
-    }
+    
 
     
 

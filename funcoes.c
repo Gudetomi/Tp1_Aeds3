@@ -1,36 +1,49 @@
 #include "funcoes.h"
 
 Stardeath *imperial_plan(int *nave){
-FILE *fp;
-fp = fopen("entrada.txt","r");
-Stardeath *tropper;
-int n,n_configuracoes, k, d, linha = 0,i,j;
-if(fp == NULL){
-    printf("Erro ao abrir o arquivo de entrada\n");
+    FILE *fp;
+    fp = fopen("entrada.txt","r");
+    Stardeath *tropper;
+    int n,n_configuracoes, k, d, linha = 0,i,j,saltos;
+    char buffer[256];
+    if(fp == NULL){
+        printf("Erro ao abrir o arquivo de entrada\n");
     }
     while(!feof(fp)){
         if(linha == 0){
-            fscanf(fp, "%d\n",&n_configuracoes);
+            fgets(buffer,256,fp);
+            sscanf(buffer, "%d",&n_configuracoes);
             tropper = (Stardeath*)malloc((*nave)*sizeof(Stardeath));
             linha++;
         }else if(linha >=1){
             for(i = 0; i < *nave; i++){
-                fscanf(fp," %d %d\n", &n,&k);
+                fgets(buffer,256,fp);
+                sscanf(buffer," %d %d", &n,&k);
                 tropper[i].n_planetas = n; //Numero de planetas
-                tropper[i].vetor_d[i] = (int**)malloc((n +1)*sizeof(int*)); //Linhas da matriz
-                for(int k = 0; k < n ; k++){
-                tropper[i].vetor_d[k] = (int*)malloc((n+1)*sizeof(int));//Colunas da matriz
-                }
                 tropper[i].k_saltos = k; // Numero de saltos
-                //Apos receber as informações é necessario guardar os valores das distancias na primeira linha da matriz
-                for(j = 0; j < n +1; j++){
-                    fscanf(fp,"%d\n",&d);
-                    tropper[i].vetor_d[j] = d;
+                saltos = tropper[i].n_planetas - tropper[i].k_saltos;
+                tropper[i].vetor_d = (int**)malloc((n+2)*sizeof(int*)); //Linhas da matriz
+                for(k = 0; k < n + 2 ; k++){
+                    tropper[i].vetor_d[k] = (int*)malloc((n+2)*sizeof(int));//Colunas da matriz
                 }
-            }
+                for(k = 0; k < n+1; k++){
+                    for(int l = 0; l < n+1; l++){
+                        tropper[i].vetor_d[k][l] = 0;
+                    }
+                }
+                //Apos receber as informações é necessario guardar os valores das distancias na matriz
+                for(j = 0; j < n ; j++){
+                    fgets(buffer,256,fp);
+                    sscanf(buffer,"%d",&d);
+                    tropper[i].vetor_d[j][j+1] = d;           
+                }
+            
+
+
+            }      
+            fclose(fp);
+            return tropper;
+
         }
     }
-    fclose(fp);
-    return tropper;
-
 }
