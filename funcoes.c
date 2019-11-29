@@ -21,14 +21,11 @@ Stardeath *imperial_plan(int *nave){
                 sscanf(buffer," %d %d", &n,&k);
                 tropper[i].n_planetas = n; //Numero de planetas
                 tropper[i].k_saltos = k; // Numero de saltos
-                tropper[i].matriz_d = (int**)malloc((n+2)*sizeof(int*)); //Linhas da matriz
+           
+                //monta matriz de zeros.
+                tropper[i].matriz_d = (int**)calloc((n+2),sizeof(int*)); //Linhas da matriz
                 for(k = 0; k < n + 2 ; k++){
                     tropper[i].matriz_d[k] = (int*)calloc((n+2),sizeof(int));//Colunas da matriz
-                }
-                for(k = 0; k < n+1; k++){
-                    for(int l = 0; l < n+1; l++){
-                        tropper[i].matriz_d[k][l] = 0;
-                    }
                 }
                 //Apos receber as informações é necessario guardar os valores das distancias na matriz
                 for(j = 0; j < n+1 ; j++){
