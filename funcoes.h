@@ -3,7 +3,7 @@
 #include <string.h>
 
 typedef struct star_death{
-    int **vetor_d, k_saltos, n_planetas, final_plan;
+    int **matriz_d, k_saltos, n_planetas, final_plan;
 }Stardeath;
 
 //Executa Programação Dinamica
