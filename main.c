@@ -13,6 +13,11 @@ int main(int argc,char *argv[]){
         //chamar função de algoritmo guloso
         executa_ag(nave,star_death3);
 
+    }else if(strcmp(argv[1], "FB") == 0 || strcmp(argv[1], "fb") == 0){
+        //chamar função de força bruta
+        executa_fb(nave,star_death3);
+    }else if(strcmp(argv[1], "PD") == 0 || strcmp(argv[1], "pd") == 0){
+        executa_pd(nave,star_death3);
     }
     
 

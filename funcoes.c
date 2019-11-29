@@ -37,13 +37,14 @@ Stardeath *imperial_plan(int *nave){
                     sscanf(buffer,"%d",&d);
                     tropper[i].vetor_d[j][j+1] = d;           
                 }
-            
-
-
+                for(k = 0; k < n +1; k++){
+                    for(int l = k +2; l < n; l++){
+                        tropper[i].vetor_d[k][l] = tropper[i].vetor_d[k][l-1]+tropper[i].vetor_d[l-1][l];
+                    }
+                }
             }      
             fclose(fp);
             return tropper;
-
         }
     }
 }
