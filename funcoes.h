@@ -33,3 +33,9 @@ void mirror_matriz(int g, Stardeath *star_death2);
 
 //calcula as possiveis combinacoes de forma recursiva
 void combinationUtil(int **arr, int *aux, int inic, int fim, int index,int c, int r,int k,int *s);
+
+//encontra e substitue a escolha gulosa
+void guloso(int* menor,int m, int* buffer,int *t, Stardeath* star_death3, int k );
+
+//AG - insere elementos no buffer
+int inserrebuffer(int t, int j, Stardeath* star_death3, int* buffer);
