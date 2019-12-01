@@ -46,6 +46,23 @@ Stardeath *imperial_plan(int *nave){
     return tropper;
 }
 
+void gera_saida(int nave, Stardeath *star_death){
+	int i=0;
+	FILE *fp;
+    	fp = fopen("saida.txt","w");
+	if(fp == NULL){
+  		printf("Erro na abertura de saida!");
+  		return 1;
+  	}
+  	while(i<nave){
+	fprintf(fp, "%d",star_death[i].final_plan );	
+	i++;
+	}
+	fclose(fp);
+  	printf("Resultados no arquivo saida!");
+	getch();
+}
+
 void mirror_matriz(int g, Stardeath *star_death2){
 		for(int i = 0; i < star_death2[g].n_planetas+2;i++){
 						for(int j = 0; j < star_death2[g].n_planetas+2;j++){
