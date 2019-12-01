@@ -10,7 +10,8 @@ tp: $(OBJS)
 main.o: main.c
 	$(CC) $(CFLAGS) -c main.c $(CLIBS)
 funcoes.o: funcoes.c funcoes.h
-	$(CC) $(CFLAGS) -c funcoes.c $(CLIBS)ag.o:algoritmoguloso.c 
+	$(CC) $(CFLAGS) -c funcoes.c $(CLIBS)
+ag.o:algoritmoguloso.c 
 	$(CC) $(CFLAGS) -c algoritmoguloso.c $(CLIBS)
 pd.o: programacaodinamica.c 
 	$(CC) $(CFLAGS) -c programacaodinamica.c $(CLIBS)
