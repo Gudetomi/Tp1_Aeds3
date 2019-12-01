@@ -112,3 +112,58 @@ void combinationUtil(int **arr, int *aux, int inic, int fim, int index,int c, in
         }
     }
 }
+
+int inserrebuffer(int t, int j, Stardeath* star_death3, int* buffer){
+        int soma=0;
+        for(int i = 0; i < t ;i++){
+            soma = soma + star_death3[j].matriz_d[i][i+1];
+        //insere distancias no buffer
+        buffer[i] = star_death3[j].matriz_d[i][i+1] ;
+        }
+        return soma/t;
+      }
+
+void guloso(int* menor,int m, int* buffer,int *t, Stardeath* star_death3, int k ){
+
+  int M1,m1=INT_MAX,M2,m2=INT_MAX,soma=0,i=0;
+  //procura menor
+  for(int i = 0; i < *t ;i++){
+
+    if(*menor>=buffer[i]){
+      //*menor = buffer[i];
+      m = i;
+      break;
+    }
+  }
+  //garante condicoes de analise
+  if(m>0){
+    m1=m-1;
+    M1=buffer[m1];
+  }else{
+    M1=INT_MAX;
+  }
+  if(m<*t ){
+    m2=m+1;
+    M2=buffer[m2];
+  }else{
+    M2=INT_MAX;
+  }
+  
+  //subustitue e realoca
+    int A;
+    A=buffer[m];
+  if(M1<M2){
+    
+    buffer[m1]= M1 + A;
+    
+  }else{
+    buffer[m2]= M2 + A;
+  }
+
+  for(i=m;i< (*t)-1;i++)
+    buffer[i]=buffer[i+1];
+  buffer = (int*)realloc(buffer,i*sizeof(int));
+
+  *t=i;
+
+}
