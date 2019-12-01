@@ -19,9 +19,6 @@ int main(int argc,char *argv[]){
     }else if(strcmp(argv[1], "PD") == 0 || strcmp(argv[1], "pd") == 0){
         executa_pd(nave,star_death3);
         printf("Sorry , tente AG ou FB");
-    }
-    
-
-    
-
+    }    
+    gera_saida(nave, star_death3);
 }
