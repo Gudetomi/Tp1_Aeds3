@@ -55,7 +55,7 @@ void gera_saida(int nave, Stardeath *star_death){
   		return 1;
   	}
   	while(i<nave){
-	fprintf(fp, "%d",star_death[i].final_plan );	
+	fprintf(fp, "%d\n",star_death[i].final_plan );	
 	i++;
 	}
 	fclose(fp);
