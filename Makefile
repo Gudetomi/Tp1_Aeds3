@@ -8,7 +8,7 @@ all: $(TARGET)
 tp: $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o tp tp.c $(CLIBS)
 main.o: main.c
-	$(CC) $(CFLAGS) -c arg.c $(CLIBS)
+	$(CC) $(CFLAGS) -c main.c $(CLIBS)
 funcoes.o: funcoes.c funcoes.h
 	$(CC) $(CFLAGS) -c funcoes.c $(CLIBS)ag.o:algoritmoguloso.c 
 	$(CC) $(CFLAGS) -c algoritmoguloso.c $(CLIBS)
