@@ -23,7 +23,7 @@ Stardeath *imperial_plan(int *nave);
 void libera_matriz(Stardeath *star_death3);
 
 //Gera Saida
-void gera_saida();
+void gera_saida(int nave, Stardeath *star_death);
 
 //FB - Compara maior a caminho final
 void compara(int*aux,int r,int *maior,int *s);
