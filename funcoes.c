@@ -13,7 +13,7 @@ Stardeath *imperial_plan(int *nave){
         if(linha == 0){
             fgets(buffer,256,fp);
             sscanf(buffer, "%d",&n_configuracoes);
-            nave[0] = n_configuracoes;
+            *nave= n_configuracoes;
 	    tropper = (Stardeath*)malloc((*nave)*sizeof(Stardeath));
             linha++;
         }else if(linha >=1){
