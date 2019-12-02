@@ -1,7 +1,7 @@
 #include "funcoes.h"
 
 void executa_ag(int nave, Stardeath* star_death2){
-    int *media,maior=0,m=0,t=0,*buffer,count;
+    int *media,maior=0,m=0,t=0,*buffer, count;
     Stardeath *star_death3 = star_death2;
     buffer = (int*)calloc(1,sizeof(int));
     media = (int*)calloc(1,sizeof(int));
@@ -22,7 +22,8 @@ void executa_ag(int nave, Stardeath* star_death2){
           maior=buffer[i];
         }
       }
-      star_death3[j].final_plan = maior;
+      star_death3[j].final_plan =maior;
+      free(buffer);
     }
 
 }
