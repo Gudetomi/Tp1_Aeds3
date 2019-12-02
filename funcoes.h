@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
+#include <time.h>
+#include <sys/time.h>
+#include <sys/resource.h>
 
 typedef struct star_death{
     int **matriz_d, k_saltos, n_planetas, final_plan;
@@ -17,7 +20,7 @@ void executa_ag(int nave,Stardeath *star_death3);
 void executa_fb(int nave, Stardeath *star_death2);
 
 //Interpretador das Entradas
-Stardeath *imperial_plan(int *nave);
+Stardeath *imperial_plan(int *nave, char *arq);
 
 //Libera matrizes
 void libera_matriz(Stardeath *star_death3);
@@ -26,7 +29,7 @@ void libera_matriz(Stardeath *star_death3);
 void gera_saida(int nave, Stardeath *star_death);
 
 //FB - Compara maior a caminho final
-void compara(int*aux,int r,int *maior,int *s);
+void compara(int*aux,int r,int *maior, int *s);
 
 //espelha matriz_d pela diagonal principal
 void mirror_matriz(int g, Stardeath *star_death2);
